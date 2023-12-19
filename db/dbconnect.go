@@ -1,8 +1,10 @@
 package db
 
 import (
+	"os"
 	"simple_bank/model"
 
+	"github.com/gofiber/fiber/v2/log"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -10,9 +12,9 @@ import (
 var DB *gorm.DB
 var err error
 
-const ConnectionStr = "root:P@ssw0rd@tcp(127.0.0.1:3307)/asset_management?parseTime=true"
-
 func InitMigration() {
+	ConnectionStr := os.Getenv("MYSQL_CONN_STRING")
+	log.Info(ConnectionStr)
 
 	DB, err = gorm.Open(mysql.Open(ConnectionStr), &gorm.Config{})
 	if err != nil {

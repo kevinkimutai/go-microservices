@@ -4,7 +4,7 @@ import "gorm.io/gorm"
 
 type Entries struct {
 	gorm.Model
-	AccountID int     `json:"account_id" gorm:"default:not null"`
+	AccountID int     `json:"account_id"`
 	Account   Account `gorm:"foreignKey:AccountID"`
-	Amount    float64 `gorm:"not null"`
+	Amount    float64
 }
