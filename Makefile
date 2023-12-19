@@ -7,10 +7,13 @@ createdb:
 dropdb:
 	docker exec -it mysql8.2 mysql -uroot -p -e "DROP DATABASE simple_bank;"
 
-migrateup:
-	migrate -path database/migrations -database "mysql://root:P@ssw0rd@tcp(localhost:3307)/simple_bank" -verbose up
+# migrateup:
+# 	migrate -path database/migrations -database "mysql://root:P@ssw0rd@tcp(localhost:3307)/simple_bank" -verbose up
 
-migratedown:
-	migrate -path database/migrations -database "mysql://root:P@ssw0rd@tcp(localhost:3307)/simple_bank" -verbose down
+# migratedown:
+# 	migrate -path database/migrations -database "mysql://root:P@ssw0rd@tcp(localhost:3307)/simple_bank" -verbose down
 
-.PHONY: mysql createdb dropdb migrateup migratedown
+# sqlc:
+# 	sqlc generate
+
+.PHONY: mysql createdb dropdb
